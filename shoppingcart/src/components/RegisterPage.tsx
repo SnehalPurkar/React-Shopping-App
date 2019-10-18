@@ -15,7 +15,7 @@ class RegisterPage extends React.Component<IUserProps, IUserState> {
         this.onChangeUserName = this.onChangeUserName.bind(this);
         this.onChangeUserEmail = this.onChangeUserEmail.bind(this);
         this.onChangeUserPassword = this.onChangeUserPassword.bind(this);
-        this.onSubmit = this.onSubmit.bind(this);
+        // this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
             userName: '',
@@ -43,34 +43,35 @@ class RegisterPage extends React.Component<IUserProps, IUserState> {
     }
 
     onSubmit(e: any) {
-        e.preventDefault();
+        // e.preventDefault();
 
-        console.log('Form Submitted: ');
-        console.log('User Name: ', this.state.userName);
-        console.log('User Email: ', this.state.emailId);
-        console.log('User Password: ', this.state.passWord)
+        // console.log('Form Submitted: ');
+        // console.log('User Name: ', this.state.userName);
+        // console.log('User Email: ', this.state.emailId);
+        // console.log('User Password: ', this.state.passWord)
 
-        const newUser = {
-            userName: this.state.userName,
-            emailId: this.state.emailId,
-            passWord: this.state.passWord
-        }
+        // const newUser = {
+        //     userName: this.state.userName,
+        //     emailId: this.state.emailId,
+        //     passWord: this.state.passWord
+        // }
 
-        axios.post('http://localhost:4002/user/add', newUser)
-            .then(res => console.log(res.data));
+        // axios.post('http://localhost:4200/user/add', newUser)
+        //     .then(res => console.log(res.data));
 
-        this.setState({
-            userName: '',
-            emailId: '',
-            passWord: '',
-        })
+        // this.setState({
+        //     userName: '',
+        //     emailId: '',
+        //     passWord: '',
+        // });
+        this.props.history.push('/login')
     }
     render() {
         return (
             <Router>
                 <div style={{ marginTop: 20 }}>
                     <h3>Sign Up!</h3>
-                    <form onSubmit={this.onSubmit}>
+                    <form >
                         <div className="form-group">
                             <label>User Name: </label>
                             <input type="text" className="form-control"
@@ -93,10 +94,9 @@ class RegisterPage extends React.Component<IUserProps, IUserState> {
                         <input type="submit" value="Add User" className="btn btn-primary"/>
 
                     </div> */}
-                        <button className="navbar-item">
-                            <Link to="/login" className="nav-link">Submit</Link>
+                        <button className="navbar-item"  onClick={() => {this.onSubmit('e')}}>
+                        Submit
                         </button>
-                        <Route path="/login" component={LoginPage} />
                     </form>
                 </div>
             </Router>

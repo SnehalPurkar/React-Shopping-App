@@ -1,7 +1,8 @@
 export interface IUserProps {
     userName?: string,
     emailId?: string,
-    passWord?: string
+    passWord?: string,
+    history: any
 }
 
 export interface IUserState {

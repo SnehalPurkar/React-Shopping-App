@@ -45,7 +45,7 @@ class CreateProduct extends React.Component<IProps, IState> {
             productPrice: this.state.productPrice
         }
 
-        axios.post('http://localhost:4002/productlist/add', newProduct)
+        axios.post('http://localhost:4200/product/addProduct', newProduct)
             .then(res => console.log(res.data));
 
         this.setState({

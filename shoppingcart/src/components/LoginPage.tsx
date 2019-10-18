@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
-// import Dashboard from "./Dashboard";
-import { BrowserRouter as Router, Route, Link, Redirect } from 'react-router-dom';
-import CreateProduct from './CreateProduct';
+import { BrowserRouter as Router, Route } from 'react-router-dom';
+
 import Dashboard from './Dashboard';
-class LoginPage extends Component {
+import { isloginObject } from '../services/IsloggedIn.service';
+
+
+class LoginPage extends Component<{ history: any }, {}> {
+    constructor(props: any) {
+        super(props);
+
+    }
+
+    onSubmit(e: any) {
+        isloginObject.isloggedin.next(true);
+        this.props.history.push('/home')
+    }
     render() {
         return (
             <Router>
@@ -11,9 +22,8 @@ class LoginPage extends Component {
                     <form>
                         <div><input type="text" name="fname" placeholder="Username" /> </div> <br></br>
                         <div><input type="text" name="lname" placeholder="Password" /></div><br></br>
-                        <button className="navbar-item">
-                            <Link to="/dashboard" className="nav-link">Submit</Link>
-
+                        <button className="navbar-item" onClick={() => { this.onSubmit('e') }}>
+                            Submit
                         </button>
                         <Route path="/dashboard" component={Dashboard} />
                     </form>

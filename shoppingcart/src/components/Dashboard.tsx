@@ -3,11 +3,7 @@ import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 
 import 'bootstrap/dist/css/bootstrap.min.css';
 import ProductsList from './ProductsList';
-import EditProduct from './EditProduct';
 import CreateProduct from './CreateProduct';
-import LoginPage from './LoginPage';
-
-
 
 class Dashboard extends Component {
     render() {
@@ -22,9 +18,6 @@ class Dashboard extends Component {
                                         <Link to="/create" className="nav-link">Buy Product</Link>
                                     </li>
                                     <li className="navbar-item">
-                                        <Link to="/login" className="nav-link">Logout</Link>
-                                    </li>
-                                    <li className="navbar-item">
                                         <Link to="/getProduct" className="nav-link">Products Added</Link>
                                     </li>
                                 </ul>
@@ -33,8 +26,6 @@ class Dashboard extends Component {
 
                         <Route path="/getProduct" component={ProductsList} />
                         <Route path="/create" component={CreateProduct} />
-                        <Route path="/login" component={LoginPage} />
-
                     </div>
                 </Router>
             </div>
